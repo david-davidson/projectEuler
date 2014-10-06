@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var better = require('../lib/better'),
+	max = Number(process.argv[2]),
+	triple = better(max),
+	product = 1,
+	key;
+
+if (triple) {
+	for (key in triple) {
+		product *= triple[key];
+	}
+	console.log('Matching Pythagorean triple: %s', JSON.stringify(triple));
+	console.log('Their product: %d', product);
+} else {
+	console.log('No matching triple!');
+}
