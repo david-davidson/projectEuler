@@ -2,9 +2,9 @@
 
 'use strict';
 
-var better = require('../lib/better'),
+var solution = require('../lib/best'),
 	max = Number(process.argv[2]),
-	triple = better(max),
+	triple = solution(max),
 	product = 1,
 	key;
 
