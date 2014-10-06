@@ -6,7 +6,7 @@
  * Performance: O(N^3) (just a brute-force implementation)
  *
  * @param {Number} max: the target sum
- * @returns {Array} results: matching triples, stored as objects
+ * @returns {Array} matching triples, stored as objects
  */
 
 var isPythagoreanTriple = function(a, b, c) {
