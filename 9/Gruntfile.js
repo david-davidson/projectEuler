@@ -9,7 +9,8 @@ module.exports = function(grunt) {
 
     jscs: {
       src: [
-        'bin/',
+        '*.js',
+        'bin/findPythagoreanTriples',
         'lib/*.js',
         'tests/*.js'
       ],
@@ -20,7 +21,8 @@ module.exports = function(grunt) {
 
     jshint: {
       all: [
-        'bin/',
+        '*.js',
+        'bin/findPythagoreanTriples',
         'lib/*.js',
         'tests/*.js'
       ],
@@ -32,7 +34,8 @@ module.exports = function(grunt) {
     watch: {
       all: {
         files: [
-          'bin/',
+          '*.js',
+          'bin/findPythagoreanTriples',
           'lib/*.js',
           'tests/*.js'
         ],
