@@ -13,15 +13,13 @@
  */
 
 module.exports = function(max) {
-	var n,
-		m;
 
 	max = max / 2;
 
-	for (n = 1; n < max; n++) {
-		for (m = n + 1; m < (max - n); m++) {
-			if (n === max / m - m) { // See mathematical steps below
-				return { // Return right away, since we're trying to optimize a little
+	for (var n = 1; n < max; n++) {
+		for (var m = n + 1; m < (max - n); m++) {
+			if (n === max / m - m) {
+				return { // Start returning right away, since we're trying to optimize a little
 					a: Math.pow(m, 2) - Math.pow(n, 2),
 					b: 2 * m * n,
 					c: Math.pow(m, 2) + Math.pow(n, 2)
@@ -32,29 +30,29 @@ module.exports = function(max) {
 	return null;
 };
 
-/*
-
-Premises:
-	* a = m^2 - n^2; b = 2mn; c = m^2 + n^2
-	* a + b + c = 1000
-	* m must be larger than n, since a (m^2 - n^2) is positive
-
-Replace a, b, and c:
-	(m^2 - n^2) + 2mn + (m^2 + n^2) = 1000
-
-The two n^2s cancel each other out:
-	2m^2 + 2mn = 1000
-
-Subtract 2m^2 from each side:
-	2mn = 1000 - 2m^2
-
-Divide by two:
-	mn = 500 - m^2
-
-Divide by m:
-	n = (500 - m^2) / m
-
-That is...
-	n = 500/m - m
-
-*/
+/**
+ * What we know:
+ * 	- a = m^2 - n^2; b = 2mn; c = m^2 + n^2 (Euclid's formula)
+ * 	- a + b + c = 1000 (problem spec)
+ * 	- m and n must both be integers (Euclid's formula)
+ * 	- m must be larger than n, since a is positive (self-evident)
+ *
+ * Solve for n:
+ *	Replace a, b, and c:
+ *		(m^2 - n^2) + 2mn + (m^2 + n^2) = 1000
+ *
+ *	The two n^2s cancel each other out:
+ *		2m^2 + 2mn = 1000
+ *
+ *	Subtract 2m^2 from each side:
+ *		2mn = 1000 - 2m^2
+ *
+ *	Divide by two:
+ *		mn = 500 - m^2
+ *
+ *	Divide by m:
+ *		n = (500 - m^2) / m
+ *
+ *	That is...
+ *		n = 500/m - m, where 500 is 1/2 the target sum
+ */

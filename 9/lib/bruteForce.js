@@ -14,14 +14,11 @@ var isPythagoreanTriple = function(a, b, c) {
 };
 
 module.exports = function(max) {
-	var results = [],
-		a,
-		b,
-		c;
+	var results = []; // Return *all* results, just in case we find more than one matching triple
 
-	for (a = 1; a <= max; a++) {
-		for (b = a + 1; b <= (max - a); b++) {
-			for (c = b + 1; c <= (max - (a + b)); c++) {
+	for (var a = 1; a <= max; a++) {
+		for (var b = a + 1; b <= (max - a); b++) {
+			for (var c = b + 1; c <= (max - (a + b)); c++) {
 				if (isPythagoreanTriple(a, b, c) && a + b + c === max) {
 					results.push({
 						a: a,

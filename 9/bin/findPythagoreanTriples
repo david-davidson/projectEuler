@@ -2,14 +2,13 @@
 
 'use strict';
 
-var solution = require('../lib/best'),
-	max = Number(process.argv[2]),
-	triple = solution(max),
-	product = 1,
-	key;
+var solution = require('../lib/best');
+var max = Number(process.argv[2]);
+var triple = solution(max);
 
 if (triple) {
-	for (key in triple) {
+	var product = 1; // Just a placeholder to allow for multiplication
+	for (var key in triple) {
 		product *= triple[key];
 	}
 	console.log('Matching Pythagorean triple: %s', JSON.stringify(triple));

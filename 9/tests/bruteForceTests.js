@@ -1,9 +1,9 @@
 'use strict';
 
-var chai = require('chai'),
-	expect = chai.expect,
-	bruteForce = require('../lib/bruteForce'),
-	results = bruteForce(1000);
+var chai = require('chai');
+var	expect = chai.expect;
+var	bruteForce = require('../lib/bruteForce');
+var	results = bruteForce(1000);
 
 describe('The brute-force function', function() {
 	it('Returns its results as an array, regardless of success', function() {
@@ -20,17 +20,14 @@ describe('The brute-force function', function() {
 	});
 
 	it('Finds a valid Pythagorean triple', function() {
-		var firstResult = results[0],
-			a,
-			b,
-			c;
+		var firstResult = results[0];
 
 		expect(firstResult).to.have.property('a');
 		expect(firstResult).to.have.property('b');
 		expect(firstResult).to.have.property('b');
-		a = firstResult.a;
-		b = firstResult.b;
-		c = firstResult.c;
+		var a = firstResult.a;
+		var b = firstResult.b;
+		var c = firstResult.c;
 		expect(Math.pow(a, 2) + Math.pow(b, 2)).to.eql(Math.pow(c, 2));
 		expect(a + b + c).to.eql(1000);
 	});
