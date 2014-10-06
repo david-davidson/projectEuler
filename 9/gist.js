@@ -45,8 +45,8 @@ if (triple) {
 	for (var key in triple) {
 		product *= triple[key];
 	}
-	console.log('Matching Pythagorean triple: %s', JSON.stringify(triple));
-	console.log('The product of a, b, and c: %d', product);
+	console.log('Matching Pythagorean triple: %s', JSON.stringify(triple)); // {"a":375,"b":200,"c":425}
+	console.log('The product of a, b, and c: %d', product); // 31875000
 } else {
 	console.log('No matching triple!');
 }
