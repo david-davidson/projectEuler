@@ -12,6 +12,22 @@ var isInteger = function(number) {
 };
 
 /**
+ * Helper function that accepts an object (with numeric values) and
+ * returns the product of its values
+ *
+ * @param {Object} numberObject: the object whose values we'll use
+ * @returns {Number} the product of the input's values
+ */
+
+var findProductOfValues = function(numberObject) {
+	var product = 1; // Just a placeholder to allow for multiplication
+	for (var key in numberObject) {
+		product *= numberObject[key];
+	}
+	return product;
+};
+
+/**
  * Uses a simplified version of Euclid's formula to generate and validate triples
  * Cf. http://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple
  *
@@ -41,10 +57,7 @@ var findTripleThatSumsTo = function(max) {
 var triple = findTripleThatSumsTo(1000);
 
 if (triple) {
-	var product = 1; // Just a starter value, to allow for multiplication
-	for (var key in triple) {
-		product *= triple[key];
-	}
+	var product = findProductOfValues(triple);
 	console.log('Matching Pythagorean triple: %s', JSON.stringify(triple)); // {"a":375,"b":200,"c":425}
 	console.log('The product of a, b, and c: %d', product); // 31875000
 } else {
