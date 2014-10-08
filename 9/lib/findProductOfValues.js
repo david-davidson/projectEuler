@@ -14,4 +14,4 @@ module.exports = function(numberObject) {
 		product *= numberObject[key];
 	}
 	return product;
-}
+};
