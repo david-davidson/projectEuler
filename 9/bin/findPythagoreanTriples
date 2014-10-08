@@ -5,12 +5,10 @@
 var solution = require('../lib/best');
 var max = Number(process.argv[2]);
 var triple = solution(max);
+var findProductOfValues = require('../lib/findProductOfValues');
 
 if (triple) {
-	var product = 1; // Just a placeholder to allow for multiplication
-	for (var key in triple) {
-		product *= triple[key];
-	}
+	var product = findProductOfValues(triple);
 	console.log('Matching Pythagorean triple: %s', JSON.stringify(triple));
 	console.log('Their product: %d', product);
 } else {
